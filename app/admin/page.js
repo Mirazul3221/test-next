@@ -1,12 +1,14 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const Page = () => {
     const route = useSearchParams()
     console.log(route)
   return (
-    <div>page</div>
+    <Suspense>
+        hello World
+    </Suspense>
   )
 }
 
