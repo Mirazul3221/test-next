@@ -1,15 +1,26 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
-import React, { Suspense } from 'react'
+import React, { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 
-const Page = () => {
-    const route = useSearchParams()
-    console.log(route)
+const AdminContent = () => {
+  const searchParams = useSearchParams();
+  
+  // Your logic to use searchParams goes here
   return (
-    <Suspense>
-        hello World
-    </Suspense>
-  )
-}
+    <div>
+      {/* Render your admin content based on searchParams */}
+      <h1>Admin Page</h1>
+      <p>Search Params: {JSON.stringify(Object.fromEntries(searchParams.entries()))}</p>
+    </div>
+  );
+};
 
-export default Page
+const AdminPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AdminContent />
+    </Suspense>
+  );
+};
+
+export default AdminPage;
